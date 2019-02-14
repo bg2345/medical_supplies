@@ -1,17 +1,8 @@
-from app import app
+from app import app, db
 from flask import render_template, url_for, redirect
 from app.forms import TitleForm, PostForm
+from app.models import Post
 
-
-# create posts global variable, only for placement before implementing database
-# once database is created, get rid of this variable
-tweets = [
-    {
-        'post_id': 0,
-        'tweet': 'Just threw the ring into the volcano!',
-        'date_posted': 'February 14th, 2019'
-    }
-]
 
 @app.route('/')
 @app.route('/index')
@@ -49,11 +40,16 @@ def posts():
     # when form is submitted append to posts list, re-render posts page
     if form.validate_on_submit():
         tweet = form.tweet.data
-        tweets.append({
-            'post_id': len(tweets),
-            'tweet': tweet,
-            'date_posted': 'February 14th, 2019'
-        })
+        post = Post(tweet=tweet)
+
+        # add post variable to database stage, then commit
+        db.session.add(post)
+        db.session.commit()
+
+        # reloads page
+        return redirect(url_for('posts'))
+
+    tweets = Post.query.all()
 
     return render_template('posts.html', title='Posts', form=form, tweets=tweets)
 
