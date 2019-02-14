@@ -1,4 +1,4 @@
-<!-- Inheriting base htm from bootstraps base file, which includes all necessary html tags -->
+<!-- Inheriting base html from bootstraps base file, which includes all necessary html tags -->
 
 {% extends 'bootstrap/base.html' %}
 
@@ -44,6 +44,12 @@
         <li class="nav-item">
         {% endif %}
           <a class="nav-link" href="{{ url_for('posts') }}">Posts</a>
+          {% if title == 'Title' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <a class="nav-link" href="{{ url_for('title') }}">Title</a>
         </li>
       </ul>
     </div>

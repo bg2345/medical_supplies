@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 
+
 {% block title %}
   {{ super() }} - Home
 {% endblock %}
@@ -9,7 +10,11 @@
   <div class="container">
     <div class="row top-margin-lg">
       <div class="col-md-12">
-        <h1>E-Commerce</h1>
+        {% if header != '' %}
+          <h1>{{ header }}</h1>
+        {% else %}
+          <h1>E-Commerce</h1>
+        {% endif %}
       </div>
     </div> <!-- ends row for header -->
 
