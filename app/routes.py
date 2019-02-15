@@ -34,25 +34,27 @@ def index(header=''):
 
     return render_template('index.html', header=header, products=products, title='Home')
 
-@app.route('/posts', methods=['GET', 'POST'])
-def posts():
+@login_required
+@app.route('/posts/<username>', methods=['GET', 'POST'])
+def posts(username):
     form = PostForm()
+
+    # query db for proper person
+    person = User.query.filter_by(username=username).first()
 
     # when form is submitted append to posts list, re-render posts page
     if form.validate_on_submit():
         tweet = form.tweet.data
-        post = Post(tweet=tweet)
+        post = Post(tweet=tweet, user_id=current_user.id)
 
         # add post variable to database stage, then commit
         db.session.add(post)
         db.session.commit()
 
         # reloads page
-        return redirect(url_for('posts'))
+        return redirect(url_for('posts', username=username))
 
-    tweets = Post.query.all()
-
-    return render_template('posts.html', title='Posts', form=form, tweets=tweets)
+    return render_template('posts.html', person=person, title='Posts', form=form, username=username)
 
 
 @app.route('/title', methods=['GET', 'POST'])
@@ -117,7 +119,7 @@ def login():
         # if user does exist, and credentials are correct, log thm in and send them to their profile page
         login_user(user, remember=form.remember_me.data)
         flash('You are now logged in!')
-        return redirect(url_for('posts'))
+        return redirect(url_for('posts', username=current_user.username))
 
 
     return render_template('login.html', title='Login', form=form)
