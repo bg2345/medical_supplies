@@ -112,7 +112,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
 
         #if user doesn't exist, reload page and flash message
-        if user is None or user.check_password(form.password.data):
+        if user is None or not user.check_password(form.password.data):
             flash('Credentials are incorrect.')
             return redirect(url_for('login'))
 
