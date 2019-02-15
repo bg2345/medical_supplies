@@ -78,6 +78,17 @@
 
 {% block content %}
   <!-- block app_content allows us to keep base content that is similar to all files, i.e. a footer -->
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+      </ul>
+
   {% block app_content %}{% endblock %}
 
 <footer>

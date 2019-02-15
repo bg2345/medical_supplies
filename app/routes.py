@@ -1,7 +1,8 @@
 from app import app, db
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, flash
 from app.forms import TitleForm, PostForm, LoginForm, RegisterForm
-from app.models import Post
+from app.models import Post, User
+from flask_login import current_user, login_user, logout_user, login_required
 
 
 @app.route('/')
@@ -67,10 +68,42 @@ def title():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    # if user is logged in already, do not let them access this page
+    if current_user.is_authenticated:
+        flash('You are already logged in!')
+        return redirect(url_for('index'))
+
     form = RegisterForm()
+
+    if form.validate_on_submit():
+        user = User(
+            first_name = form.first_name.data,
+            last_name = form.last_name.data,
+            username = form.username.data,
+            email = form.email.data,
+            url = form.url.data,
+            age = int(form.age.data),
+            bio = form.bio.data
+        )
+
+        # set password hash
+        user.set_password(form.password.data)
+
+        # add to stage and commit to db, then flash and return
+        db.session.add(user)
+        db.session.commit()
+        flash('Congratulations, you are now registered!')
+        return redirect(url_for('login'))
+
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     return render_template('login.html', title='Login', form=form)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
