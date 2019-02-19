@@ -15,8 +15,12 @@ class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
 
 
-# setup our database URI, which is the location of our database file/server
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABSE_URL') or \
-        'sqlite:///' + os.path.join(BASEDIR, 'app.db')
+# # setup our database URI, which is the location of our database file/server
+#     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABSE_URL') or \
+#         'sqlite:///' + os.path.join(BASEDIR, 'app.db')
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # uri for postgres local databse
+    # not for Heroku usage yet
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:BRUINS4@localhost:5432/ecommerce'
