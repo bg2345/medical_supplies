@@ -14,11 +14,16 @@ body {
   margin-top: 100px;
 }
 
+.extra-margin-lg {
+  margin-top: 100px;
+}
+
 .top-margin-sm {
   margin-top: 25px;
 }
 
 .card {
+  margin-top:25px;
   padding: 25px;
 }
 

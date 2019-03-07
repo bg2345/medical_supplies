@@ -17,6 +17,10 @@
 
 {% block scripts %}
   {{ super() }}
+  <!-- jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Own JS -->
+    <script src="./static/js/app.js"></script>
 {% endblock %}
 
 
@@ -47,12 +51,12 @@
             <a class="nav-link" href="{{ url_for('posts', username=current_user.username) }}">Profile</a>
           </li>
         {% endif %}
-          {% if title == 'Title' %}
+          {% if title == 'Checkout' %}
           <li class="nav-item active">
           {% else %}
           <li class="nav-item">
           {% endif %}
-            <a class="nav-link" href="{{ url_for('title') }}">Title</a>
+            <a class="nav-link" href="{{ url_for('checkout') }}">Checkout</a>
         </li>
         {% if current_user.is_authenticated %}
           <!-- put logout link here -->
