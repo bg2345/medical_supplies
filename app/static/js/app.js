@@ -109,10 +109,31 @@ return amount.toFixed(2);
 // updating all classes with total being displayed
 function updateTotals() {
   // define a total variable from the return of calc total
-let total_amount = calcTotal()
+let amount = calcTotal()
 
   // insert that total into all places that render total
-$(".total").text(`$${total_amount}`)
+$(".total").text(`$${amount}`)
+
+// convert total to cents
+amount = amount * 100;
+amount = Math.ceil(amount);
+
+// insert form into id of pay
+let html = `
+<form action="/pay/?amount=${amount}" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_mVLaP8FiAKVm0TfO3eONfCrg"
+    data-amount="${amount}"
+    data-name="Demo Site"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>
+`;
+
+$('#pay').html(html);
 
 }
 
