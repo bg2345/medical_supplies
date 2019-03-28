@@ -24,5 +24,12 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # uri for postgres local databse
-    # not for Heroku usage yet
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+    # mail variables for Google account
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = 1
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    ADMINS = ['bgardynski@gmail.com']
