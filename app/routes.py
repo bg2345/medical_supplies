@@ -18,7 +18,7 @@ def index(header=''):
             'title': 'Sterile Alchohol Prep Pads',
             'price': 12.98,
             'desc': 'Box of 100 pads. Sterile, 70% alcohol.',
-            'image': 'http://placehold.it/250x250'
+            'image': 'https://cdn.shopify.com/s/files/1/0021/5692/0919/products/71bEP-EAxvL._SL1500_720x.jpg?v=1584548531'
         },
         {
             'id': 1002,
