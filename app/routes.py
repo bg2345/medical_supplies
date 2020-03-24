@@ -22,7 +22,7 @@ def index(header=''):
         },
         {
             'id': 1002,
-            'title': 'Medical Gloves',
+            'title': 'Latex Medical Gloves',
             'price': 15.56,
             'desc': 'Box of 100 medical gloves, size Large.',
             'image': 'http://placehold.it/250x250'

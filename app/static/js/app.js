@@ -1,27 +1,27 @@
 products = [
         {
             'id': 1001,
-            'title': 'Soap',
-            'price': 3.98,
-            'desc': 'Very clean soapy soap, descriptive text'
+            'title': 'Sterile Alchohol Prep Pads',
+            'price': 12.98,
+            'desc': 'Box of 100 pads. Sterile, 70% alcohol.'
         },
         {
             'id': 1002,
-            'title': 'Grapes',
-            'price': 4.56,
-            'desc': 'A bundle of grapey grapes, yummy'
+            'title': 'Latex Medical Gloves',
+            'price': 15.56,
+            'desc': 'Box of 100 medical gloves, size Large.'
         },
         {
             'id': 1003,
-            'title': 'Pickles',
-            'price': 5.67,
-            'desc': 'A jar of pickles is pickly'
+            'title': 'Surgical Masks',
+            'price': 15.67,
+            'desc': 'Package of 2 surgical masks.'
         },
         {
             'id': 1004,
-            'title': 'Juice',
-            'price': 2.68,
-            'desc': 'Yummy orange juice'
+            'title': 'Syringes',
+            'price': 22.68,
+            'desc': 'Box of 100 syringes.'
         }
     ]
 
