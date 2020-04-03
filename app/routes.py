@@ -15,7 +15,7 @@ def index(header=''):
     products = [
         {
             'id': 1001,
-            'title': 'Sterile Alchohol Prep Pads',
+            'title': 'Sterile Alcohol Prep Pads',
             'price': 12.98,
             'desc': 'Box of 100 pads. Sterile, 70% alcohol.',
             'image': 'https://cdn.shopify.com/s/files/1/0021/5692/0919/products/71bEP-EAxvL._SL1500_720x.jpg?v=1584548531'
@@ -145,6 +145,18 @@ def logout():
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
     return render_template('checkout.html', title='Checkout')
+
+@app.route('/product/1001', methods=['GET', 'POST'])
+def show_prod():
+    prod = {
+        'id': 1001,
+        'title': 'Sterile Alchohol Prep Pads',
+        'price': 12.98,
+        'desc': 'Box of 100 pads. Sterile, 70% alcohol.',
+        'image': 'https://cdn.shopify.com/s/files/1/0021/5692/0919/products/71bEP-EAxvL._SL1500_720x.jpg?v=1584548531'
+    }
+
+    return render_template('product/1001.html', prod=prod, title='Sterile Alcohol Pads')
 
 @app.route('/pay/', methods=['GET', 'POST'])
 def pay():

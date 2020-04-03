@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+  {{ super() }} - Sterile Alcohol Pads
+{% endblock %}
+
+{% block app_content %}
+
+<div class="container top-margin-sm">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+
+
+    <!-- begin product being shown -->
+
+    <div class="row top-margin-sm">
+
+        <div class="col-md-4 offset-md-4">
+          <div class="card">
+            <div class="card-img-top"><img src="{{ prod.image }}" alt="Product image" class="product-img"></div>
+            <div class="card-title">{{ prod.title }}</div>
+            <div class="card-subtitle">${{ prod.price }}</div>
+            <div class="card-text"><p>{{ prod.desc }}</p></div>
+            <button class="btn btn-primary" onClick="addItem({{ prod.id }})">Add to Cart</button>
+          </div> <!-- ends card -->
+        </div> <!-- ends col 12 for card -->
+
+    </div> <!-- ends row for card -->
+
+
+      <!-- end products being shown -->
+
+  </div> <!-- ends container -->
+{% endblock %}

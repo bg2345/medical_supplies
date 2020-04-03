@@ -1,7 +1,7 @@
 products = [
         {
             'id': 1001,
-            'title': 'Sterile Alchohol Prep Pads',
+            'title': 'Sterile Alcohol Prep Pads',
             'price': 12.98,
             'desc': 'Box of 100 pads. Sterile, 70% alcohol.'
         },
@@ -34,6 +34,7 @@ function addItem(id) {
   // clear session storage
   // sessionStorage.clear();
   console.log(id);
+
 
   if (sessionStorage.getItem('cart')) {
     var cart = JSON.parse(sessionStorage.getItem('cart'));

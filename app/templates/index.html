@@ -23,13 +23,13 @@
       <div class="col-md-12">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item item active">
               <img class="d-block w-100" src="http://placehold.it/800x150" alt="First slide">
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item item">
               <img class="d-block w-100" src="http://placehold.it/800x150" alt="Second slide">
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item item">
               <img class="d-block w-100" src="http://placehold.it/800x150" alt="Third slide">
             </div>
           </div>
@@ -46,11 +46,11 @@
     {% endif %}
         <div class="col-md-4">
           <div class="card">
-            <div class="card-img-top"><img src="{{ product.image }}" alt="Product image" class="product-img"></div>
-            <div class="card-title">{{ product.title }}</div>
+            <div class="card-img-top"><a href="/product/{{ product.id }}"><img src="{{ product.image }}" alt="Product image" class="product-img" ></a></div>
+            <div class="card-title"><a href="/product/{{ product.id }}">{{ product.title }}</a></div>
             <div class="card-subtitle">${{ product.price }}</div>
             <div class="card-text"><p>{{ product.desc }}</p></div>
-            <button class="btn btn-primary" onClick="addItem({{ product.id }})">Add to Cart</button>
+            <button class="btn btn-primary btn-lg btn-block" onClick="addItem({{ product.id }})">Add to Cart</button>
           </div> <!-- ends card -->
         </div> <!-- ends col 12 for card -->
     {% if loop.index % 3 == 0 or loop.length == loop.index %}
