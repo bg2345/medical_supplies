@@ -156,7 +156,7 @@ def show_prod():
         'image': 'http://placehold.it/250x250'
     }
 
-    return render_template('product/1001.html', prod=prod, title='Sterile Alcohol Pads')
+    return render_template('product/1001.html', prod=prod, title='Hand Sanitizer')
 
 @app.route('/pay/', methods=['GET', 'POST'])
 def pay():
