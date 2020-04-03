@@ -15,10 +15,10 @@ def index(header=''):
     products = [
         {
             'id': 1001,
-            'title': 'Sterile Alcohol Prep Pads',
-            'price': 12.98,
-            'desc': 'Box of 100 pads. Sterile, 70% alcohol.',
-            'image': 'https://cdn.shopify.com/s/files/1/0021/5692/0919/products/71bEP-EAxvL._SL1500_720x.jpg?v=1584548531'
+            'title': 'Hand Sanitizer',
+            'price': 5.98,
+            'desc': '100 ML bottle of 70% ethyl alcohol hand sanitizer.',
+            'image': 'http://placehold.it/250x250'
         },
         {
             'id': 1002,
@@ -150,10 +150,10 @@ def checkout():
 def show_prod():
     prod = {
         'id': 1001,
-        'title': 'Sterile Alchohol Prep Pads',
-        'price': 12.98,
-        'desc': 'Box of 100 pads. Sterile, 70% alcohol.',
-        'image': 'https://cdn.shopify.com/s/files/1/0021/5692/0919/products/71bEP-EAxvL._SL1500_720x.jpg?v=1584548531'
+        'title': 'Hand Sanitizer',
+        'price': 5.98,
+        'desc': '100 ML Bottle of 70% ethyl alcohol hand sanitizer.',
+        'image': 'http://placehold.it/250x250'
     }
 
     return render_template('product/1001.html', prod=prod, title='Sterile Alcohol Pads')

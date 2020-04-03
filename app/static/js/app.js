@@ -1,9 +1,10 @@
 products = [
         {
             'id': 1001,
-            'title': 'Sterile Alcohol Prep Pads',
-            'price': 12.98,
-            'desc': 'Box of 100 pads. Sterile, 70% alcohol.'
+            'title': 'Hand Sanitizer',
+            'price': 5.98,
+            'desc': '100 ML bottle of 70% ethyl alcohol hand sanitizer.',
+            'image': 'http://placehold.it/250x250'
         },
         {
             'id': 1002,
