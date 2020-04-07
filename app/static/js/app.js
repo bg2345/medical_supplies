@@ -35,6 +35,8 @@ function addItem(id) {
   // clear session storage
   // sessionStorage.clear();
   console.log(id);
+  // display message to user that they have added an item to cart
+  alert("You have added an item to your cart. Continue browsing, or go to the Checkout page to complete your order.")
 
 
   if (sessionStorage.getItem('cart')) {
